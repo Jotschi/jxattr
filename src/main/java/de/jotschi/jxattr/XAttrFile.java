@@ -8,6 +8,10 @@ public class XAttrFile extends File {
 
 	private static final long serialVersionUID = -4293973542600858334L;
 
+	public XAttrFile(File file) {
+		super(file.getAbsolutePath());
+	}
+
 	public XAttrFile(String filePath) {
 		super(filePath);
 	}

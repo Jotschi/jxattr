@@ -90,6 +90,11 @@ public class XAttr {
 		int expectedLenght = XAttr.getAttributeSize(file, key);
 		key = USER_PREFIX + key;
 
+		if (expectedLenght <= 0) {
+			throw new IOException("The attribute {" + key
+					+ "} contains no data for file {" + file.getAbsolutePath()
+					+ "}");
+		}
 		byte[] value = new byte[expectedLenght];
 		int len = XAttrNativeBindings.getxattr(file.getAbsolutePath(), key,
 				value, value.length);
