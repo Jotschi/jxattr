@@ -9,11 +9,9 @@
 
 	<dependencies>
 		<dependency>
+			<groupId>org.bytedeco</groupId>
 			<artifactId>javacpp</artifactId>
-			<version>20110705</version>
-			<groupId>com.googlecode.javacpp</groupId>
-			<scope>system</scope>
-			<systemPath>${basedir}/libs/javacpp.jar</systemPath>
+			<version>1.3.3</version>
 		</dependency>
 		<dependency>
 			<artifactId>junit</artifactId>
@@ -33,7 +31,7 @@
 			<plugin>
 				<groupId>com.googlecode.mavennatives</groupId>
 				<artifactId>maven-nativedependencies-plugin</artifactId>
-				<version>0.0.6</version>
+				<version>0.0.7</version>
 				<executions>
 					<execution>
 						<id>unpacknatives</id>
@@ -47,7 +45,6 @@
 					<separateDirs>false</separateDirs>
 				</configuration>
 			</plugin>
-
 
 			<plugin>
 				<artifactId>maven-surefire-plugin</artifactId>
@@ -68,7 +65,7 @@
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>exec-maven-plugin</artifactId>
-				<version>1.1</version>
+				<version>1.6.0</version>
 				<executions>
 					<execution>
 						<id>build-jnilib</id>
@@ -78,7 +75,18 @@
 						</goals>
 						<configuration>
 							<executable>java</executable>
-							<commandlineArgs><![CDATA[-jar libs/javacpp.jar -Dcompiler.linkpath=${basedir}/target/classes/linux-x86 ${optjavacpp} -Dcompiler.includepath=${basedir}/src/main/jni -classpath target/classes de.jotschi.jxattr.XAttrNativeBindings]]></commandlineArgs>
+							<addOutputToClasspath>false</addOutputToClasspath>
+							<arguments>
+								<argument>-Dcompiler.linkpath=${basedir}/target/classes/linux-x86</argument>
+								<argument>-Dcompiler.includepath=${basedir}/src/main/jni</argument>
+								<argument>-jar</argument>
+								<classpath>
+									<dependency>org.bytedeco:javacpp</dependency>
+								</classpath>
+								<argument>-classpath</argument>
+								<argument>target/classes</argument>
+								<argument>de.jotschi.jxattr.XAttrNativeBindings</argument>
+							</arguments>
 						</configuration>
 					</execution>
 				</executions>

@@ -1,9 +1,9 @@
 package de.jotschi.jxattr;
 
-import com.googlecode.javacpp.Loader;
-import com.googlecode.javacpp.annotation.Cast;
-import com.googlecode.javacpp.annotation.Platform;
-import com.googlecode.javacpp.annotation.Properties;
+import org.bytedeco.javacpp.Loader;
+import org.bytedeco.javacpp.annotation.Cast;
+import org.bytedeco.javacpp.annotation.Platform;
+import org.bytedeco.javacpp.annotation.Properties;
 
 @Properties({ @Platform(cinclude = "sys/xattr.h") })
 public class XAttrNativeBindings {
