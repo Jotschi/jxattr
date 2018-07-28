@@ -14,7 +14,7 @@ import org.junit.Test;
 public class XAttrFileTest {
 
 	public static final String FIRST_KEY = "xyz";
-	File testFile = new File("testfile" + System.currentTimeMillis());
+	File testFile = new File("target", "testfile" + System.currentTimeMillis());
 
 	@Before
 	public void setup() throws IOException {
@@ -34,7 +34,7 @@ public class XAttrFileTest {
 
 		// Read as Byte
 		byte[] byteValue = file.getAttribute(FIRST_KEY);
-		assertEquals(originalValue, String.valueOf(stringValue));
+		assertEquals(originalValue, new String(byteValue));
 
 		// Verify List
 		boolean foundAttribute = false;
@@ -55,6 +55,6 @@ public class XAttrFileTest {
 
 	@After
 	public void tearDown() {
-		testFile.delete();
+//		testFile.delete();
 	}
 }

@@ -1,0 +1,12 @@
+[
+  {
+    "name": "de.jotschi.jxattr.XAttrNativeBindings",
+    "methods": [
+      { "name": "listxattr", "parameterTypes": ["java.lang.String", "byte[]", "int"] },
+      { "name": "getxattr", "parameterTypes": ["java.lang.String", "java.lang.String", "byte[]", "int"] },
+      { "name": "setxattr", "parameterTypes": ["java.lang.String", "java.lang.String", "java.lang.String", "int", "int"] },
+      { "name": "setxattr", "parameterTypes": ["java.lang.String", "java.lang.String", "byte[]", "int", "int"] }
+    ]
+  }
+]
+
