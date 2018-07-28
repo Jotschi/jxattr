@@ -15,9 +15,7 @@ $GRAALVMDIR/bin/native-image \
  -H:+JNI \
  -H:JNIConfigurationFiles=./graalvm/jni.json \
  -Djava.library.path=$LIBPATH \
- -Dio.netty.native.workdir=$LIBPATH \
  -H:CLibraryPath=$LIBPATH \
  -H:+ReportUnsupportedElementsAtRuntime \
- -Dfile.encoding=UTF-8 \
  -jar target/jxattr-1.0.0-SNAPSHOT.jar  
 
